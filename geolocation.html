@@ -4,34 +4,27 @@
     <title>Geolocation</title>
 </head>
 <body>
-<h2>Hello, Let trace the location</h2>
-
-<button onclick="getlocation()">Get Location</button>
-
-<div id="output"></div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script>
-   var x = getElementById('output');
-   
-
-   function getlocation(){
-       if(navigator.geolocation)
-       {
-           navigator.geolocation.getCurrentPosition(showPosition);
-       }
-       else{
-           x.innerHTML="Not Supporting";
-       }
-   }
-   function showPosition(position)
-   {
-       x.innerHTML = "latitude = "+position.coords.latitude;
-       x.innerHTML+="<br/>";
-       x.innerHTML+=" longitude = "+position.coords.longitude;
-   }
-
-</script>
-
+    <h1>Hello, Lets trace the location.</h1>
+    <button onclick="getlocation()">Get Location</button>
+    <div id="output"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        var x= document.getElementById('output');
+        function getlocation(){
+            if(navigator.geolocation){
+                x.innerHTML="supporting";
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else{
+                x.innerHTML="not supporting";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML="Latitude: " + position.coords.latitude;
+            x.innerHTML+="<br/>"
+            x.innerHTML+="<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+    
 </body>
 </html>
