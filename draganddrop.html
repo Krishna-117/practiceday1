@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #mydiv1{
+                widows:350px;
+                height:70px;
+                padding: 10px;
+                border: 5px solid blue;
+            }
+        </style>
+        <script>
+            function allowDrop(ev)
+            {
+                ev.preventDefault();
+            }
+            function drag(ev)
+            {
+                ev.datatransfer.setdata("JK times",ev.target.id);
+            }
+            function drop(ev)
+            {
+                var id = ev.datatransfer.getData("JK times");
+                ev.target.appendChild(target.getElementByID(id));
+            }
+        </script>
+    </head>
+    <body>
+        <div id="mydiv1" ondrop="drop(event)" ondragover="allowDrop(event)">     </div> <br/>
+        <img id=logo1 src="ladakh.jpg" draggable="true" ondragstart="drag(event)" width="330" height="78">
+        
+    </body>
+</html>
